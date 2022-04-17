@@ -1,15 +1,26 @@
-## Put comments here that give an overall description of what your
-## functions do
+## create matrix inverse from matrix (x) and save inverse as "inv"
 
-## Write a short comment describing this function
+inverse.matrix <- function(x) {
+  datalist <- as.vector(x)
+  r <- nrow(datalist)
+  c <- ncol(datalist)
+  inv.datalist <- datalist^-1
+  nrow.set <- nrow(x)
+  ncol.set <- ncol(x)
+  inv <<- matrix(inv.datalist, nrow.set, ncol.set)
+  inv
+}
 
-makeCacheMatrix <- function(x = matrix()) {
+## Check if matrix inverse "inv" exists. 
+## If yes exists then generate "inv"
+## If not create matrix inverse via inverse.matrix() and print it.
 
+cacheSolve <- function(x) { 
+  
+ifelse(exists("inv"), print(inv), return(inverse.matrix(x)))
 }
 
 
-## Write a short comment describing this function
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
+
+
